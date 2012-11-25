@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head> 
+	<title>Сервер авторизации</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="/icons/social.css" />
+	<!--[if lte IE 7]><script src="/icons/lte-ie7.js"></script><![endif]-->
+	<style type="text/css">
+      body { padding-top: 20px; padding-bottom: 40px; font-family: Helvetica,Arial,sans-serif; font-size: 14px; }
+      .container { width: 960px; margin: 0 auto; padding: 0; }
+      .span3 { width: 220px; float: left; margin-right: 20px; }
+      .span9 { width: 720px; margin-left: 240px; }
+      .sidebar { margin: 0; padding: 0; }
+      .sidebar li { list-style: none; padding: 6px 0; }
+      .sidebar li a { display: block; }
+      h1 { text-align: center; line-height: 1; font-size: 72px; }
+      pre { font-family: Monaco,Menlo,Consolas,"Courier New",monospace; display: block; color: #333; font-size: 13px; line-height: 20px; padding: 10px; }
+      .muted { color: #999; }
+      hr { border: none; border-top: 1px Solid #999; height: 1px;}
+    </style>
+</head>
+ 
+<body>
+
+<div class="container">
+
+	<div class="masthead">
+		<h3 class="muted">OAuth Phorm.ru</h3>
+	</div>
+	
+	<hr />
+
+	<div class="row">
+	
+		<div class="span3">
+		
+			<h4 class="muted">Войти через</h4>
+	
+			<ul class="sidebar">
+				<?php if(isset($this->cnf['oauth']['google'])) { ?>
+					<li><a href="/request/google" title="Войти через Google" class="socicon google"><span class="icon"></span><span class="space"></span>Google</a></li>
+				<?php } ?>
+				<?php if(isset($this->cnf['oauth']['yandex'])) { ?>
+					<li><a href="/request/yandex" title="Войти через Яндекс" class="socicon yandex"><span class="icon"></span>Яндекс</a></li>
+				<?php } ?>
+				<?php if(isset($this->cnf['oauth']['mailru'])) { ?>
+					<li><a href="/request/mailru" title="Войти через Mail.ru" class="socicon mailru"><span class="icon"></span>Mail.ru</a></li>
+				<?php } ?>
+				<?php if(isset($this->cnf['oauth']['odnoklassniki'])) { ?>
+					<li><a href="/request/odnoklassniki" title="Войти через Одноклассники" class="socicon odnoklassniki"><span class="icon"></span>Одноклассники</a></li>
+				<?php } ?>
+				<?php if(isset($this->cnf['oauth']['vk'])) { ?>
+					<li><a href="/request/vk" title="Войти через VK" class="socicon vk"><span class="icon"></span>ВКонтакте</a></li>
+				<?php } ?>
+				<?php if(isset($this->cnf['oauth']['twitter'])) { ?>
+					<li><a href="/request/twitter" title="Войти через Twitter" class="socicon twitter"><span class="icon"></span>Twitter</a></li>
+				<?php } ?>
+				<?php if(isset($this->cnf['oauth']['facebook'])) { ?>
+					<li><a href="/request/facebook" title="Войти через Facebook" class="socicon facebook"><span class="icon"></span>Facebook</a></li>
+				<?php } ?>
+				<?php if(isset($this->cnf['oauth']['github'])) { ?>
+					<li><a href="/request/github" title="Войти через GitHub" class="socicon github"><span class="icon"></span>GitHub</a></li>
+				<?php } ?>
+				<?php if(isset($this->cnf['oauth']['linkedin'])) { ?>
+					<li><a href="/request/linkedin" title="Войти через LinkedIn" class="socicon linkedin"><span class="icon"></span>LinkedIn</a></li>
+				<?php } ?>
+			</ul>
+	
+		</div>
+		
+		<div class="span9">
+
+			<?php if($this->userinfo) { ?>
+					
+				<pre>
+					<?php print_r($this->userinfo) ?>
+				</pre>
+					
+			<?php } else { ?>
+			
+				<h1>...</h1>
+					
+			<?php } ?>
+		
+		</div>
+		
+	</div>
+	
+</div>
+
+</body>
+</html>

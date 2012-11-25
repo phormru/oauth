@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:zf="http://framework.zend.com/xml/zend-config-xml/1.0/">
+
+	<production>
+	
+		<oauth>
+			<google>
+				<key></key>
+				<secret></secret>
+				<callback>http://www.oauth.lo/callback/google</callback>
+				<adapter>Phorm_Oauth_Adapter_Google</adapter>
+			</google>
+			<yandex>
+				<key></key>
+				<secret></secret>
+				<callback>http://www.oauth.lo/callback/yandex</callback>
+				<adapter>Phorm_Oauth_Adapter_Yandex</adapter>
+			</yandex>
+			<mailru>
+				<key></key>
+				<secret></secret>
+				<callback>http://www.oauth.lo/callback/mailru</callback>
+				<adapter>Phorm_Oauth_Adapter_Mailru</adapter>
+			</mailru>
+			<vk>
+				<key></key>
+				<secret></secret>
+				<callback>http://www.oauth.lo/callback/vk</callback>
+				<adapter>Phorm_Oauth_Adapter_Vk</adapter>
+			</vk>
+			<twitter>
+				<key></key>
+				<secret></secret>
+				<callback>http://www.oauth.lo/callback/twitter</callback>
+				<adapter>Phorm_Oauth_Adapter_Twitter</adapter>
+			</twitter>
+			<github>
+				<key></key>
+				<secret></secret>
+				<callback>http://www.oauth.lo/callback/github</callback>
+				<adapter>Phorm_Oauth_Adapter_Github</adapter>
+			</github>
+			<linkedin>
+				<key></key>
+				<secret></secret>
+				<callback>http://www.oauth.lo/callback/linkedin</callback>
+				<adapter>Phorm_Oauth_Adapter_Linkedin</adapter>
+			</linkedin>
+			<odnoklassniki>
+				<key></key>
+				<secret></secret>
+				<appkey></appkey>
+				<callback>http://www.oauth.lo/callback/odnoklassniki</callback>
+				<adapter>Phorm_Oauth_Adapter_Odnoklassniki</adapter>
+			</odnoklassniki>
+			<facebook>
+				<key></key>
+				<secret></secret>
+				<callback>http://www.oauth.lo/callback/facebook</callback>
+				<adapter>Phorm_Oauth_Adapter_Facebook</adapter>
+			</facebook>
+		</oauth>
+	
+		<phpSettings>
+			<display_startup_errors>0</display_startup_errors>
+			<display_errors>0</display_errors>
+		</phpSettings>
+		
+		<includePaths>
+			<library><zf:const zf:name="APPLICATION_PATH" />/../library</library>
+		</includePaths>
+		
+		<bootstrap>
+			<path><zf:const zf:name="APPLICATION_PATH" />/Bootstrap.php</path>
+			<class>Bootstrap</class>
+		</bootstrap>
+		
+		<autoloaderNamespaces>
+			<phorm>Phorm_</phorm>
+		</autoloaderNamespaces>
+		
+		<appnamespace>Application</appnamespace>
+		
+		<resources>
+			<frontController>
+				<controllerDirectory><zf:const zf:name="APPLICATION_PATH" />/controllers</controllerDirectory>
+				<params>
+					<displayExceptions>0</displayExceptions>
+				</params>
+			</frontController>
+			<router>
+				<routes>
+				    <request type="Zend_Controller_Router_Route">
+				        <route>request/:provider</route>
+				        <defaults module="default" controller="index" action="request" />
+				    </request>
+				    <callback type="Zend_Controller_Router_Route">
+				        <route>callback/:provider</route>
+				        <defaults module="default" controller="index" action="callback" />
+				    </callback>
+				</routes>
+			</router>
+		</resources>
+	
+	</production>
+	
+	<staging extends="production"></staging>
+	
+	<testing extends="production">
+	
+		<phpSettings>
+			<display_startup_errors>1</display_startup_errors>
+			<display_errors>1</display_errors>
+		</phpSettings>
+		
+	</testing>
+	
+	<development extends="production">
+	
+		<phpSettings>
+			<display_startup_errors>1</display_startup_errors>
+			<display_errors>1</display_errors>
+		</phpSettings>
+		
+		<resources>
+			<frontController>
+				<params>
+					<displayExceptions>1</displayExceptions>
+				</params>
+			</frontController>
+		</resources>
+		
+	</development>
+	
+</config>
