@@ -32,7 +32,7 @@
 	<tr>
 		<td>Google+</td>
 		<td>google</td>
-		<td><a href="https://code.google.com/apis/console/#project:988045330111:access" target="_blank">Click me</a></td>
+		<td><a href="https://code.google.com/apis/console/" target="_blank">Click me<br>(API Access tab)</a></td>
 		<td>Client ID</td>
 		<td>Client secret</td>
 		<td>&mdash;</td>
@@ -56,7 +56,7 @@
 	<tr>
 		<td>VK.com</td>
 		<td>vk</td>
-		<td><a href="http://vk.com/developers.php" target="_blank">Click me</a></td>
+		<td><a href="http://vk.com/editapp?act=create" target="_blank">Click me</a></td>
 		<td>ID приложения</td>
 		<td>Защищенный ключ</td>
 		<td>&mdash;</td>
