@@ -46,7 +46,7 @@ class Phorm_Oauth_Adapter_Vk extends Phorm_Oauth_Adapter_Abstract {
 			'userid' => $userinfo['uid'],
 			'username' => !empty($userinfo['nickname']) ? $userinfo['nickname'] : $userinfo['first_name'] . ' ' . $userinfo['last_name'],
 			'gender' => $userinfo['sex'] == 0 ? 'male' : 'female',
-			'email' => $userinfo['screen_name'] . '@vk.com',
+			'email' => $userinfo['uid'] . '@vk.com',
 			'locale' => null,
 			'firstname' => $userinfo['first_name'],
 			'lastname' => $userinfo['last_name'],

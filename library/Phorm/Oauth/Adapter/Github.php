@@ -44,7 +44,7 @@ class Phorm_Oauth_Adapter_Github extends Phorm_Oauth_Adapter_Abstract {
 			'userid' => $userinfo['id'],
 			'username' => $userinfo['login'],
 			'gender' => null,
-			'email' => isset($userinfo['email']) ? $userinfo['email'] : '@github.com',
+			'email' => isset($userinfo['email']) ? $userinfo['email'] : $userinfo['id'] . '@github.com',
 			'locale' => 'ru',
 			'firstname' => isset($userinfo['name']) ? $userinfo['name'] : null,
 			'lastname' => null,
