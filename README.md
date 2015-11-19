@@ -101,6 +101,14 @@
 		<td>Секрет приложения</td>
 		<td>&mdash;</td>
 	</tr>
+	<tr>
+		<td>Instagram</td>
+		<td>instagram</td>
+		<td><a href="https://www.instagram.com/developer/clients/manage/" target="_blank">Click me</a></td>
+		<td>CLIENT ID</td>
+		<td>CLIENT SECRET</td>
+		<td>&mdash;</td>
+	</tr>
 </table>
 <h3>Логика работы приложения</h3>
 <p>Основным контроллером работы приложения является IndexController, вы можете использовать любой другой контроллер или вообще любой PHP-скрипт. 

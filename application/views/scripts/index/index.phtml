@@ -2,20 +2,19 @@
 <head> 
 	<title>Сервер авторизации</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/icons/social.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 	<!--[if lte IE 7]><script src="/icons/lte-ie7.js"></script><![endif]-->
 	<style type="text/css">
       body { padding-top: 20px; padding-bottom: 40px; font-family: Helvetica,Arial,sans-serif; font-size: 14px; }
-      .container { width: 960px; margin: 0 auto; padding: 0; }
-      .span3 { width: 220px; float: left; margin-right: 20px; }
-      .span9 { width: 720px; margin-left: 240px; }
       .sidebar { margin: 0; padding: 0; }
       .sidebar li { list-style: none; padding: 6px 0; }
       .sidebar li a { display: block; }
       h1 { text-align: center; line-height: 1; font-size: 72px; }
-      pre { font-family: Monaco,Menlo,Consolas,"Courier New",monospace; display: block; color: #333; font-size: 13px; line-height: 20px; padding: 10px; }
+      /*pre { font-family: Monaco,Menlo,Consolas,"Courier New",monospace; display: block; color: #333; font-size: 13px; line-height: 20px; padding: 10px; }
       .muted { color: #999; }
-      hr { border: none; border-top: 1px Solid #999; height: 1px;}
+      hr {}*/
     </style>
 </head>
  
@@ -37,31 +36,34 @@
 	
 			<ul class="sidebar">
 				<?php if(isset($this->cnf['oauth']['google'])) { ?>
-					<li><a href="/request/google" title="Войти через Google" class="socicon google"><span class="icon"></span><span class="space"></span>Google</a></li>
+					<li><a href="/request/google" title="Войти через Google" class="socicon google"><i class="fa fa-google"></i>Google</a></li>
 				<?php } ?>
 				<?php if(isset($this->cnf['oauth']['yandex'])) { ?>
-					<li><a href="/request/yandex" title="Войти через Яндекс" class="socicon yandex"><span class="icon"></span>Яндекс</a></li>
+					<li><a href="/request/yandex" title="Войти через Яндекс" class="socicon yandex">Яндекс</a></li>
 				<?php } ?>
 				<?php if(isset($this->cnf['oauth']['mailru'])) { ?>
-					<li><a href="/request/mailru" title="Войти через Mail.ru" class="socicon mailru"><span class="icon"></span>Mail.ru</a></li>
+					<li><a href="/request/mailru" title="Войти через Mail.ru" class="socicon mailru">Mail.ru</a></li>
 				<?php } ?>
 				<?php if(isset($this->cnf['oauth']['odnoklassniki'])) { ?>
-					<li><a href="/request/odnoklassniki" title="Войти через Одноклассники" class="socicon odnoklassniki"><span class="icon"></span>Одноклассники</a></li>
+					<li><a href="/request/odnoklassniki" title="Войти через Одноклассники" class="socicon odnoklassniki"><i class="fa fa-odnoklassniki"></i>Одноклассники</a></li>
 				<?php } ?>
 				<?php if(isset($this->cnf['oauth']['vk'])) { ?>
-					<li><a href="/request/vk" title="Войти через VK" class="socicon vk"><span class="icon"></span>ВКонтакте</a></li>
+					<li><a href="/request/vk" title="Войти через VK" class="socicon vk"><i class="fa fa-vk"></i>ВКонтакте</a></li>
 				<?php } ?>
 				<?php if(isset($this->cnf['oauth']['twitter'])) { ?>
-					<li><a href="/request/twitter" title="Войти через Twitter" class="socicon twitter"><span class="icon"></span>Twitter</a></li>
+					<li><a href="/request/twitter" title="Войти через Twitter" class="socicon twitter"><i class="fa fa-twitter"></i>Twitter</a></li>
 				<?php } ?>
 				<?php if(isset($this->cnf['oauth']['facebook'])) { ?>
-					<li><a href="/request/facebook" title="Войти через Facebook" class="socicon facebook"><span class="icon"></span>Facebook</a></li>
+					<li><a href="/request/facebook" title="Войти через Facebook" class="socicon facebook"><i class="fa fa-facebook"></i>Facebook</a></li>
 				<?php } ?>
 				<?php if(isset($this->cnf['oauth']['github'])) { ?>
-					<li><a href="/request/github" title="Войти через GitHub" class="socicon github"><span class="icon"></span>GitHub</a></li>
+					<li><a href="/request/github" title="Войти через GitHub" class="socicon github"><i class="fa fa-github"></i>GitHub</a></li>
 				<?php } ?>
 				<?php if(isset($this->cnf['oauth']['linkedin'])) { ?>
-					<li><a href="/request/linkedin" title="Войти через LinkedIn" class="socicon linkedin"><span class="icon"></span>LinkedIn</a></li>
+					<li><a href="/request/linkedin" title="Войти через LinkedIn" class="socicon linkedin"><i class="fa fa-linkedin"></i>LinkedIn</a></li>
+				<?php } ?>
+				<?php if(isset($this->cnf['oauth']['instagram'])) { ?>
+					<li><a href="/request/instagram" title="Войти через Instagram" class="socicon instagram"><i class="fa fa-instagram"></i>Instagram</a></li>
 				<?php } ?>
 			</ul>
 	
