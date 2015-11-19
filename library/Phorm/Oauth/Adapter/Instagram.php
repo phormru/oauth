@@ -26,7 +26,7 @@ class Phorm_Oauth_Adapter_Instagram extends Phorm_Oauth_Adapter_Abstract {
 		'authorizeUrl' => 'https://api.instagram.com/oauth/authorize/',
 		'requestTokenUrl' => 'https://api.instagram.com/oauth/access_token',
 		'userInfoUrl' => 'https://api.instagram.com/v1/users/self/?access_token=%s',
-		'response' => array('user-id','access_token')
+		'response' => array('access_token')
 	);
 	
 	
@@ -44,7 +44,7 @@ class Phorm_Oauth_Adapter_Instagram extends Phorm_Oauth_Adapter_Abstract {
 			'userid' => $userinfo['data']['id'],
 			'username' => $userinfo['data']['username'],
 			'gender' => null,
-			'email' => null,
+			'email' => $userinfo['data']['username'] . '@instagram.com',
 			'locale' => null,
 			'firstname' => $userinfo['data']['full_name'],
 			'lastname' => null,
