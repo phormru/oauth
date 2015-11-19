@@ -44,7 +44,7 @@ class Phorm_Oauth_Adapter_Instagram extends Phorm_Oauth_Adapter_Abstract {
 			'userid' => $userinfo['data']['id'],
 			'username' => $userinfo['data']['username'],
 			'gender' => null,
-			'email' => $userinfo['data']['username'] . '@instagram.com',
+			'email' => $userinfo['data']['id'] . '@instagram.com',
 			'locale' => null,
 			'firstname' => $userinfo['data']['full_name'],
 			'lastname' => null,
