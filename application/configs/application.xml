@@ -59,6 +59,12 @@
 				<callback>http://www.oauth.lo/callback/facebook</callback>
 				<adapter>Phorm_Oauth_Adapter_Facebook</adapter>
 			</facebook>
+			<instagram>
+				<key></key>
+				<secret></secret>
+				<callback>http://www.oauth.lo/callback/instagram</callback>
+				<adapter>Phorm_Oauth_Adapter_Unstagram</adapter>
+			</instagram>
 		</oauth>
 	
 		<phpSettings>
