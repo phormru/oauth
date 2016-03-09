@@ -26,8 +26,7 @@ class Phorm_Oauth_Adapter_Twitter extends Phorm_Oauth_Adapter_Abstract {
 		'authorizeUrl' => 'https://api.twitter.com/oauth/authorize',
 		'requestTokenUrl' => 'https://api.twitter.com/oauth/request_token',
 		'accessTokenUrl' => 'https://api.twitter.com/oauth/access_token',
-		'userInfoUrl' => 'https://api.twitter.com/1/users/show.json?user_id=%s',
-		'response' => array('user_id')
+		'userInfoUrl' => 'https://api.twitter.com/1.1/users/show.json',
 	);
 	
 	
@@ -39,6 +38,9 @@ class Phorm_Oauth_Adapter_Twitter extends Phorm_Oauth_Adapter_Abstract {
 	 */
 	
 	public function getMappedUserInfo($userinfo) {
+		
+		//print_r($userinfo);
+		//die();
 		
 		$fio = explode(' ',$userinfo['name']);
 		
@@ -57,5 +59,41 @@ class Phorm_Oauth_Adapter_Twitter extends Phorm_Oauth_Adapter_Abstract {
 		
 	}
 	
-}
+	/**
+	 * Возвращает результат GET-запроса к сервису за информацией о пользователе
+	 *
+	 * @param array $callback
+	 * @return array
+	 */
+	
+	public function getUserInfo($callback) {
+		
+		$options = array(
+			'oauth_consumer_key' => $this->_options['key'],
+			'oauth_token' => $callback['oauth_token'],
+			'user_id' => $callback['user_id'],
+			'oauth_nonce' => rand(1111,9999),
+			'oauth_timestamp' => time(),
+			'oauth_signature_method' => 'HMAC-SHA1',
+			'oauth_version' => '1.0',
+			'format' => 'json'
+		);
+		
+		ksort($options);
+		
+		$sig = new Zend_Oauth_Signature_Hmac($this->_options['secret'],$callback['oauth_token_secret'],'sha1');
+		$options['oauth_signature'] = $sig->sign($options,'GET',$this->_options['userInfoUrl']);
+		
+		$client = new Zend_Http_Client($this->_options['userInfoUrl'] . '?' . http_build_query($options));
 
+		if($response = $client->request(Zend_Http_Client::GET)) {
+			
+			return Zend_Json::decode($response->getBody());
+			
+		}
+		
+		return false;
+		
+	}
+	
+}
