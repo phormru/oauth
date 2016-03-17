@@ -4,7 +4,7 @@
 <h2>Поддерживаемые адаптеры</h2>
 <ul>
 	<li>Google</li>
-	<li>Яндекс (Мой круг)</li>
+	<li>Яндекс</li>
 	<li>Mail.ru (Мой мир)</li>
 	<li>Одноклассники</li>
 	<li>Twitter</li>
@@ -33,7 +33,7 @@
 	<tr>
 		<td>Google+</td>
 		<td>google</td>
-		<td><a href="https://code.google.com/apis/console/" target="_blank">Click me<br>(API Access tab)</a></td>
+		<td><a href="https://code.google.com/apis/console/" target="_blank">Click me</a></td>
 		<td>Client ID</td>
 		<td>Client secret</td>
 		<td>&mdash;</td>
@@ -89,7 +89,7 @@
 	<tr>
 		<td>Одноклассники</td>
 		<td>odnoklassniki</td>
-		<td><a href="http://dev.odnoklassniki.ru/wiki/pages/viewpage.action?pageId=13992188" target="_blank">Click me</a></td>
+		<td><a href="https://apiok.ru/wiki/pages/viewpage.action?pageId=42476652" target="_blank">Click me</a></td>
 		<td>Application ID</td>
 		<td>Секретный ключ приложения</td>
 		<td>Публичный ключ приложения</td>
