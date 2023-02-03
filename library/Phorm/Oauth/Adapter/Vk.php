@@ -22,10 +22,10 @@ class Phorm_Oauth_Adapter_Vk extends Phorm_Oauth_Adapter_Abstract {
 	 * @var array
 	 */
 	protected $_options = array(
-		'siteUrl' => 'http://vk.com',
+		'siteUrl' => 'https://oauth.vk.com',
 		'authorizeUrl' => 'https://oauth.vk.com/authorize',
 		'requestTokenUrl' => 'https://oauth.vk.com/token',
-		'userInfoUrl' => 'https://api.vk.com/method/users.get?fields=uid,first_name,last_name,nickname,screen_name,sex,bdate,photo_big&access_token=%s&uid=%s',
+		'userInfoUrl' => 'https://api.vk.com/method/users.get?fields=uid,first_name,last_name,nickname,screen_name,sex,bdate,photo_big&access_token=%s&uid=%s&v=5.131',
 		'response' => array('access_token','user_id')
 	);
 	
@@ -39,14 +39,17 @@ class Phorm_Oauth_Adapter_Vk extends Phorm_Oauth_Adapter_Abstract {
 	
 	public function getMappedUserInfo($userinfo) {
 		
+		//print_r($userinfo);
+		//die();
+		
 		$userinfo = $userinfo['response'][0];
 		
 		return array(
 			'provider' => 'vk',
-			'userid' => $userinfo['uid'],
+			'userid' => $userinfo['id'],
 			'username' => !empty($userinfo['nickname']) ? $userinfo['nickname'] : $userinfo['first_name'] . ' ' . $userinfo['last_name'],
-			'gender' => $userinfo['sex'] == 0 ? 'male' : 'female',
-			'email' => $userinfo['uid'] . '@vk.com',
+			'gender' => $userinfo['sex'] == 2 ? 'male' : 'female',
+			'email' => $userinfo['screen_name'] . '@vk.com',
 			'locale' => null,
 			'firstname' => $userinfo['first_name'],
 			'lastname' => $userinfo['last_name'],
@@ -57,3 +60,4 @@ class Phorm_Oauth_Adapter_Vk extends Phorm_Oauth_Adapter_Abstract {
 	}
 	
 }
+
